@@ -34,7 +34,7 @@ class date_data:
 
     def POST(self):
         date_json = web.data()
-	new_data_json = data_loader.get_data_json(date_json, ["chart_user_count","chart_median_timeused","chart_avg_channel_time","chart_avg_carrier_match","chart_history_match","chart_online_time",'chart_data_byte',"chart_avg_databyte","chart_average_online"],"bibi",['ios','android'])
+	new_data_json = data_loader.get_data_json(date_json, ["chart_call_num","chart_call_fail","chart_user_count","chart_avg_timeused","chart_avg_channel_time","chart_avg_carrier_match","chart_history_match","chart_online_time",'chart_data_byte',"chart_avg_databyte","chart_average_online"],"bibi",['ios','android'])
         return new_data_json
 
 if __name__ == "__main__":

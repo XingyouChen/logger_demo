@@ -20,14 +20,11 @@ class home_page:
 
 class day_data:
     def GET(self):
-        return render.new_data()
+        return render.day_data()
 
     def POST(self):
 	date_json = web.data()
-        print date_json
 	new_data_json = data_loader.get_data_json(date_json, ["chart_online_section","chart_data_byte_section"],"bibi",['ios','android'])
-	f=open("datajson.json","w")
-	f.write(new_data_json)
 	return new_data_json
 
 class date_data:
@@ -37,11 +34,7 @@ class date_data:
 
     def POST(self):
         date_json = web.data()
-        print date_json
-	new_data_json = data_loader.get_data_json(date_json, ["chart_user_count","chart_median_timeused","chart_avg_channel_time","chart_avg_carrier_match","chart_history_match","chart_online_time",'chart_data_byte',"chart_avg_databyte","chart_average_online"],"bibi",['ios','android'])
-	f=open("datajson.json","w")
-	f.write(new_data_json)
-
+	new_data_json = data_loader.get_data_json(date_json, ["chart_user_count","chart_avg_timeused","chart_avg_channel_time","chart_avg_carrier_match","chart_history_match","chart_online_time",'chart_data_byte',"chart_avg_databyte","chart_average_online"],"bibi",['ios','android'])
         return new_data_json
 
 if __name__ == "__main__":

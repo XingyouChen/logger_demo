@@ -6,21 +6,39 @@ var Charts_mix = {};
 
 var charts_name_format = {
 	"chart_user_count":"用户数量",
-	"chart_median_timeused":'平均呼叫时长',
-	"chart_avg_channel_time":'平均延时',
-	"chart_avg_carrier_match":'最优连接占比',
-	"chart_history_match":'依赖于历史记录的最优连接占比',
+	"chart_avg_timeused":'平均信令延时',
+	"chart_avg_channel_time":'平均CHANNEL存活时间',
+	"chart_avg_carrier_match":'运营商匹配度',
+	"chart_history_match":'客户端沉淀策略匹配度',
+	"chart_call_num":'每日总通话次数',
+	"chart_call_fail":'每日信令失败率',
 	"chart_average_online":'平均在线时长',
 	"chart_avg_databyte":'平均流量消耗',
 	"chart_online_time":'平均在线时长分位图',
 	"chart_data_byte":'平均流量消耗分位图'
 }
+
+var charts_unit = {
+	"chart_user_count":["人",1],
+	"chart_avg_timeused":['s',1],
+	"chart_avg_channel_time":['s',1],
+	"chart_avg_carrier_match":['',0.01],
+	"chart_history_match":['',0.01],
+	"chart_call_num":['',1],
+	"chart_call_fail":['',0.01],
+	"chart_average_online":['s',1],
+	"chart_avg_databyte":['K',1024],
+	"chart_online_time":['s',1],
+	"chart_data_byte":['K',1024]
+}
 var chart_one_data_need = {
 	"chart_user_count":'user_count',
-	"chart_median_timeused":'median_timeused',
+	"chart_avg_timeused":'avg_timeused',
 	"chart_avg_channel_time":'avg_channel_time',
 	"chart_avg_carrier_match":'avg_carrier_match',
 	"chart_history_match":'history_match',
+	"chart_call_num":'call_num',
+	"chart_call_fail":'call_fail',
 	"chart_average_online":'average_online',
 	"chart_avg_databyte":'avg_databyte',
 }
@@ -40,7 +58,6 @@ function create_zhexian_one(div_id, chart_name, product_name, platform){
 	new_myChart.setOption({
 	    title : {
 		text: charts_name_format[chart_name],
-		subtext: '纯属虚构'
 	    },
 	    tooltip : {
 		trigger: 'axis'
@@ -67,7 +84,7 @@ function create_zhexian_one(div_id, chart_name, product_name, platform){
 	    {
 		type : 'value',
 		scale:true,
-		axisLabel : {formatter:'{value} '}
+		axisLabel : {formatter:'{value}' + charts_unit[chart_name][0]}
 	    }
 	    ],
 	    series : [
@@ -127,11 +144,9 @@ function create_zhexian_one(div_id, chart_name, product_name, platform){
 function create_zhexian_mix(div_id, chart_name, product_name, platform){
 	var new_myChart= echarts.init(document.getElementById(div_id),'macarons');
 	Charts_mix[platform + '_' + chart_name ] = new_myChart;
-	
 	new_myChart.setOption({
 	    title : {
 		text: platform + charts_name_format[chart_name],
-		subtext: '纯属虚构'
 	    },
 	    tooltip : {
 		trigger: 'axis'
@@ -157,7 +172,7 @@ function create_zhexian_mix(div_id, chart_name, product_name, platform){
 	    yAxis : [
 	    {
 		type : 'value',
-		axisLabel : {formatter:'{value} '}
+		axisLabel :  {formatter:'{value}' + charts_unit[chart_name][0]}
 	    }
 	    ],
 	    series :function(){

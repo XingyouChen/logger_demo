@@ -3,7 +3,7 @@ $def with()
 <html>
     <head>
 	<meta charset="utf-8">
-        <title>数据分布 | LooopLogger 1.0 Beta</title>
+        <title>数据分布 | LooopLogger 1.0</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -43,9 +43,7 @@ $def with()
                     <div class="col-lg-12">
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-left bootstrap-admin-theme-change-size">
-                                <li class="text">Change size:</li>
-                                <li><a class="size-changer small">Small</a></li>
-                                <li><a class="size-changer large active">Large</a></li>
+                                <li class="text" id="up_today_date" ></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
@@ -53,13 +51,7 @@ $def with()
                                 </li>
                                 <li class="dropdown">
                                     <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i class="glyphicon glyphicon-user"></i> Username <i class="caret"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li><a href="index.html">Logout</a></li>
-                                    </ul>
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -85,7 +77,16 @@ $def with()
                         <div class="collapse navbar-collapse main-navbar-collapse">
                             <ul class="nav navbar-nav">
                               <li ><a href="homepage">首页</a></li>
-                                <li class="active"><a href="daydata">触宝BiBi</a></li>
+				<li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-hover="dropdown">触宝BiBi <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+					 <li role="presentation" class="dropdown-header">图形选项</li>
+					<li role="presentation" class="divider"></li>
+                                        <li><a href="daydata">数据分布</a></li>
+                                        <li><a href="datedata">数据趋势</a></li>
+                                        <li class = "disabled"><a href="#">自定义绘制</a></li>
+                                    </ul>
+                                </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-hover="dropdown">更多 <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -95,8 +96,8 @@ $def with()
                                         
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation" class="dropdown-header">其它</li>
-                                        <li><a href="#">问题反馈</a></li>
-                                        <li><a href="#">联系作者</a></li>
+                                        <li><a href="#" onclick = "alert('请发送邮件至xingyou.chen@cootek.cn')">问题反馈</a></li>
+                                        <li><a href="#" onclick = "alert('请发送邮件至xingyou.chen@cootek.cn')">联系作者</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -127,14 +128,12 @@ $def with()
 
                 <!-- content -->
                 <div class="col-md-10">
-
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="navbar navbar-default bootstrap-admin-navbar-thin">
                                 <ol class="breadcrumb bootstrap-admin-breadcrumb">
                                     <li>
-                                        <a href="daydata">触宝bibi</a>
+                                        <a href="#">触宝bibi</a>
                                     </li>
                                     <li class="active">数据分布</li>
                                 </ol>
@@ -165,14 +164,14 @@ $def with()
 		    <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default bootstrap-admin-no-table-panel">
-                                <div id="bingzhuang1" style="width: 100%;height:300px;" ></div>
+                                <div id="bingzhuang1" style="width: 100%;height:350px;" ></div>
                             </div>
                         </div>
                     </div>
 		<div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default bootstrap-admin-no-table-panel">
-                                <div id="bingzhuang2" style="width: 100%;height:300px;" ></div>
+                                <div id="bingzhuang2" style="width: 100%;height:350px;" ></div>
                             </div>
                         </div>
                     </div>
@@ -187,7 +186,7 @@ $def with()
                 <div class="row">
                     <div class="col-lg-12">
                         <footer role="contentinfo">
-                            <p class="left">Looop Logger 1.0 Beta</p>
+                            <p class="left">Looop Logger 1.0</p>
                             <p class="right">&copy; 2012 <a href="http://www.chubao.cn/" target="_blank">触宝科技</a></p>
                         </footer>
                     </div>
@@ -219,7 +218,8 @@ $def with()
 				todayBtn: true,
 				pickerPosition: "bottom-left",
 				endDate :  moment().subtract(7, 'days').format('YYYY-MM-DD'),
-				startDate: "2015-01-01"
+				startDate: "2016-06-23",
+				todayBtn: false
 			}).on('changeDate',function(e){
 			});
 
@@ -263,6 +263,7 @@ $def with()
 		$$("#start_date_input").val(moment().subtract(7, 'days').format('YYYY-MM-DD'));
 		
 		document.getElementById("update_date").innerHTML=('可查看7天数据，数据已更新至 '  + moment().subtract(1, 'days').format('YYYY-MM-DD') + ' 24:00:00 。' );
+		document.getElementById("up_today_date").innerHTML = "欢迎访问！今天是 " + moment().format('dddd LL');  
 		</script>
 		
     </body>

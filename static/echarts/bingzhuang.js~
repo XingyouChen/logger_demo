@@ -9,9 +9,9 @@ var charts_name_format = {
 }
 var chart_two_data_need = {
 	"chart_online_section":['0h-4h','4h-8h','8h-12h','12h-16h','16h-20h','20h-24h'],
-	"chart_data_byte_section":['0-100k','100k-1m','1m-10m','10m-100m'],
+	"chart_data_byte_section":['0-1k','1k-10k','10k-100k','100k-1m','1m-5m','5m-10m','10m-30m','30m-80m','80m-200m','200m-1g'],
 	"chart_online_section_EN":['online_section_4h','online_section_8h','online_section_12h','online_section_16h','online_section_20h','online_section_24h'],
-	"chart_data_byte_section_EN":['data_byte_section_100k','data_byte_section_1m','data_byte_section_10m','data_byte_section_100m']
+	"chart_data_byte_section_EN":['data_byte_section_1k','data_byte_section_10k','data_byte_section_100k','data_byte_section_1m','data_byte_section_5m','data_byte_section_10m','data_byte_section_30m','data_byte_section_80m','data_byte_section_200m','data_byte_section_1g']
 }
 
 function create_bingzhuang(div_id, chart_name, product_name, platform){
@@ -42,7 +42,7 @@ function create_bingzhuang(div_id, chart_name, product_name, platform){
 		},
 		tooltip : {
 		        trigger: 'item',
-		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		        formatter: "{a} <br/>{b} : {c}%"
 		    },
 		calculable : true,
 			toolbox: {
@@ -71,13 +71,13 @@ function create_bingzhuang(div_id, chart_name, product_name, platform){
 		        name: 'ios',
 		        type: 'pie',
 		    	radius : '50%',
-		    	center: ['25%', '50%'],
+		    	center: ['30%', '50%'],
 		    },
 				{
 		        name: 'android',
 		        type: 'pie',
 		    	radius : '50%',
-		    	center: ['75%', '50%'],
+		    	center: ['70%', '50%'],
 		    }
         	]
     	},
@@ -127,8 +127,6 @@ function get_serie(j,chart_name){
 }
 
 function update_data(org_data_json){
-	
-	alert(4);
 	eval('var org_data ='+org_data_json);
 	ios_data = org_data['ios'];
 	android_data = org_data['android'];

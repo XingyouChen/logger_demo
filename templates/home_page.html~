@@ -3,7 +3,7 @@ $def with()
 <!DOCTYPE html>
 <html>
     <head>
-        <title>首页 | LooopLogger 1.0 Beta</title>
+        <title>首页 | LooopLogger 1.0</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -88,31 +88,15 @@ $def with()
                     <div class="col-lg-12">
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-left bootstrap-admin-theme-change-size">
-                                <li class="text">Change size:</li>
-                                <li><a class="size-changer small">Small</a></li>
-                                <li><a class="size-changer large active">Large</a></li>
+                                <li class="text" id="up_today_date" ></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Link</a></li>
-                                <li><a href="#">Link</a></li>
                                 <li>
-                                    <a href="#">Reminders <i class="glyphicon glyphicon-bell"></i></a>
+                                    <a href="#" >Settings <i class="glyphicon glyphicon-cog disabled"></i></a>
                                 </li>
-                                <li>
-                                    <a href="#">Settings <i class="glyphicon glyphicon-cog"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#">Go to frontend <i class="glyphicon glyphicon-share-alt"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i class="glyphicon glyphicon-user"></i> Username <i class="caret"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li><a href="index.html">Logout</a></li>
-                                    </ul>
+                                <li class="dropdown disabled">
+                                    <a href="#" role="button" class="dropdown-toggle disabled" data-hover="dropdown"> <i class="glyphicon glyphicon-user"></i> Username <i class="caret"></i></a>
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -122,7 +106,7 @@ $def with()
         </nav>
 
         <!-- main / large navbar -->
-        <nav class="navbar navbar-default navbar-fixed-top bootstrap-admin-navbar " role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top bootstrap-admin-navbar bootstrap-admin-navbar-under-small" role="navigation">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -138,7 +122,16 @@ $def with()
                         <div class="collapse navbar-collapse main-navbar-collapse">
                             <ul class="nav navbar-nav">
                                 <li class="active"><a href="homepage">首页</a></li>
-                                <li><a href="daydata">触宝BiBi</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-hover="dropdown">触宝BiBi <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+					 <li role="presentation" class="dropdown-header">图形选项</li>
+					<li role="presentation" class="divider"></li>
+                                        <li><a href="daydata">数据分布</a></li>
+                                        <li><a href="datedata">数据趋势</a></li>
+                                        <li class = "disabled"><a href="#">自定义绘制</a></li>
+                                    </ul>
+                                </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-hover="dropdown">更多 <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -148,8 +141,8 @@ $def with()
                                         
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation" class="dropdown-header">其它</li>
-                                        <li><a href="#">问题反馈</a></li>
-                                        <li><a href="#">联系作者</a></li>
+                                        <li><a href="#" onclick = "alert('请发送邮件至xingyou.chen@cootek.cn')">问题反馈</a></li>
+                                        <li><a href="#" onclick = "alert('请发送邮件至xingyou.chen@cootek.cn')">联系作者</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -158,71 +151,57 @@ $def with()
                 </div>
             </div><!-- /.container -->
         </nav>
-
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1500">
+		   <!-- 轮播（Carousel）指标 -->
+		   <ol class="carousel-indicators">
+		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		      <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+		      <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+		      <li data-target="#myCarousel" data-slide-to="3" class="active"></li>
+		   </ol>   
+		   <!-- 轮播（Carousel）项目 -->
+		   <div class="carousel-inner">
+		      <div class="item active">
+			 <img src="/static/images/welcome1.png" alt="First slide">
+		      </div>
+		      <div class="item">
+                         <img src="/static/images/welcome2.png" alt="Second slide">
+                      </div>
+		      <div class="item">
+			 <img src="/static/images/welcome3.png" alt="Third slide">
+		      </div>
+		      <div class="item">
+			 <img src="/static/images/welcome4.png" alt="Fourth slide">
+		      </div>
+		   </div>
+		   <!-- 轮播（Carousel）导航 -->
+		   <a class="carousel-control left" href="#myCarousel" 
+		      data-slide="prev">&lsaquo;</a>
+		   <a class="carousel-control right" href="#myCarousel" 
+		      data-slide="next">&rsaquo;</a>
+		</div> 
+	</div>
         <div class="container">
+		<h3> </h3>
             <!-- left, vertical navbar & content -->
-            <div class="row">
-                <!-- content -->
-                <div class="col-md-12">
-                   
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="text-muted bootstrap-admin-box-title">通知<br>
-                                    </div>
-                                </div>
-                                <div class="bootstrap-admin-panel-content">
-                                    <ul>
-                                        <li>数据对比功能已上线，欢迎使用。 <a href="#" target="_blank"></a></li>
-                                        <li>系统性能不稳定，若图片未能加载，请耐心等待(づ￣3￣)づ╭❤～</li>
-                                        <li>Looop Logger系统beta版已正式上线，欢迎出提意见。 <a href="https://github.com/VinceG/Bootstrap-Admin-Theme" target="_blank"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="text-muted bootstrap-admin-box-title">数据新闻</div>
-                                </div>
-                                <div class="bootstrap-admin-panel-content">
-                                    <ul>
-                                        <li>
-                                            <a href="https://github.com/meritoo/Bootstrap-3-Admin-Theme" target="_blank">新闻11111111。</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://github.com/meritoo/Bootstrap-3-Admin-Theme/archive/master.zip">新闻22222222。</a>
-                                        </li>
-                                        <li>
-                                            新闻33333333。
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
+		<div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="text-muted bootstrap-admin-box-title">系统简介
-                                    </div>
-                                </div>
                                 <div class="bootstrap-admin-panel-content">
-                                    <p>Looop Logger</p>
-                                    <p>Copyright © 2016 - CooTek &lt;Beijing&gt;</p>
-                                    <p>Looop Logger系统是一个强大的后台数据可视化平台。The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software。</p>
-                                    <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-                                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+                                        <img width="350" height="30" class="img-responsive  center-block" src="/static/images/getstart.png" alt="getstart">
+                                
+
+				    <a href="daydata" class="action">
+                                    	<button class="btn btn-info center-block" >开始体验</button>
+                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                    
+
         </div>
 
         <!-- footer -->
@@ -231,7 +210,7 @@ $def with()
                 <div class="row">
                     <div class="col-lg-12">
                         <footer role="contentinfo">
-                            <p class="left">Looop Logger 1.0 Beta</p>
+                            <p class="left">Looop Logger 1.0 </p>
                             <p class="right">&copy; 2012 <a href="http://www.chubao.cn/" target="_blank">触宝科技</a></p>
                         </footer>
                     </div>
@@ -243,5 +222,9 @@ $def with()
         <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./static/js/twitter-bootstrap-hover-dropdown.min.js"></script>
         <script type="text/javascript" src="./static/js/bootstrap-admin-theme-change-size.js"></script>
+	<script type="text/javascript" src="./static/js/moment.js" charset="UTF-8"></script>
+	<script type="text/javascript" >
+		document.getElementById("up_today_date").innerHTML = "欢迎访问！今天是 " + moment().format('dddd LL');  
+	</script>
     </body>
 </html>
